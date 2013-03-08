@@ -796,11 +796,11 @@ td {
 
 /* Default Link Styles */
 a {
-  color: #2ba6cb;
+  color: #005595;
   text-decoration: none;
   line-height: inherit; }
   a:hover, a:focus {
-    color: #2795b6; }
+    color: #01355d; }
   a img {
     border: none; }
 
@@ -1079,11 +1079,11 @@ blockquote p {
   padding-bottom: 0.8125em;
   padding-left: 1.5em;
   font-size: 1em;
-  background-color: #2ba6cb;
-  border-color: #2284a1;
+  background-color: #50b847;
+  border-color: #2e8626;
   color: white; }
   .button:hover, .button:focus {
-    background-color: #2284a1; }
+    background-color: #2e8626; }
   .button:hover, .button:focus {
     color: white; }
   .button.secondary {
