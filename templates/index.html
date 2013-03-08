@@ -33,8 +33,16 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
-      <li>
-        <a class="button" href="#">Log in</a>
+      <li class="has-dropdown"><a href="#">Actions</a>
+            <ul class="dropdown">
+                <li><a href="family_partner_list.html">List family members</a></li>
+                <li><a href="family_partner_add.html">Add family members</a></li>
+                <li><a href="staff_member_add.html">Add staff members</a></li>
+            </ul>
+        </li>
+        <li>
+          
+        <a class="button" href="family_partner_list.html">Log in</a>
       </li>
     </ul>
   </section>
@@ -48,7 +56,7 @@
 
 	<div class="row">
 		<div class="large-offset-2 large-8 columns">
-			<form action="login.php" method="POST" id="login">
+			<form>
                             <fieldset class="login_form">
                                 <legend>Login</legend>
                                     <div class="row">
@@ -63,7 +71,7 @@
                                </div>
                                <div class="row">
                                     <div class="large-12 columns">
-                                            <a href="#" class="button postfix expand">Log in</a>
+                                            <a href="family_partner_list.html" class="button postfix expand">Log in</a>
                                     </div>
                                     <div class="large-12 columns">
                                         <a href="#">Forgot password</a>
