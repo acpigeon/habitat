@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Family Partner Check-In | Austin Habitat for Humanity</title>
+
+  <link rel="stylesheet" href="css/normalize.css" />
+  
+  <link rel="stylesheet" href="css/foundation.css" />
+  
+  <!--Font Awesome -->
+  <link rel="stylesheet" href="css/font-awesome-ie7.min.css" />
+  <link rel="stylesheet" href="css/font-awesome.css" />
+  <!-- Graphs: -->
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <style>
+        .axis path,
+        .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+        }
+
+        .bar {
+        fill: steelblue;
+        }
+
+        .x.axis path {
+        display: none;
+        }
+        .arc path {
+  stroke: #fff;
+}
+</style>
+
+  
+  <!-- end graphs -->
+  
+
+  <script src="js/vendor/custom.modernizr.js"></script>
+
+</head>
+<body>
+    <nav class="top-bar">
+  <ul class="title-area">
+    <!-- Title Area -->
+    <li class="name">
+      <h1><a href="#">Habitat</a></h1>
+    </li>
+    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+        <li class="divider"></li>
+        <li class="has-dropdown"><a href="#">Actions</a>
+            <ul class="dropdown">
+                <li><a href="family_partner_list.html">List family members</a></li>
+                <li><a href="family_partner_add.html">Add family members</a></li>
+                <li><a href="staff_member_add.html">Add staff members</a></li>
+            </ul>
+        </li>
+        <li class="divider"></li>
+      <li>
+        <a class="button" href="index.html">Log out</a>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<h2 class="logo_brand">Austin Habitat for Humanity</h2>
+		</div>
+	</div>
+        <div class="row">
+            <div class="large-offset-2 large-8 columns">
+                <h3><i class="icon-group"></i> Anderson, Jim & Jane</h3>
+               
+                    Total Hours for Family Partner:  <strong>230</strong> (out of 300)
+                   
+                    
+                        <h4>Project progress</h4>
+                        <div class="pie_chart"></div>
+                        <script>
+
+                            var width = 370,
+                                height = 260,
+                                radius = Math.min(width, height) / 2;
+
+                            var color = d3.scale.ordinal()
+                                .range(["#51b847", "#b84747"]);
+
+                            var arc = d3.svg.arc()
+                                .outerRadius(radius - 10)
+                                .innerRadius(0);
+
+                            var pie = d3.layout.pie()
+                                .sort(null)
+                                .value(function(d) { return d.population; });
+
+                            var svg = d3.select(".pie_chart").append("svg")
+                                .attr("width", width)
+                                .attr("height", height)
+                            .append("g")
+                                .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+                            d3.csv("data2.csv", function(error, data) {
+
+                            data.forEach(function(d) {
+                                d.population = +d.population;
+                            });
+
+                            var g = svg.selectAll(".arc")
+                                .data(pie(data))
+                                .enter().append("g")
+                                .attr("class", "arc");
+
+                            g.append("path")
+                                .attr("d", arc)
+                                .style("fill", function(d) { return color(d.data.age); });
+
+                            g.append("text")
+                                .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+                                .attr("dy", ".35em")
+                                .style("text-anchor", "middle")
+                                .text(function(d) { return d.data.age; });
+
+                            });
+                        </script>
+
+            </div>
+        </div>
+            <div class="row">
+                <div class="large-offset-2 large-8 columns">
+                    <h4>Family members' stats</h4>
+                    <table >
+                        <thead>
+                            <tr>
+                            <th width="70%">Family member</th>
+                            <th>Total hours</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td><a href="#"><i class="icon-star"></i> Anderson</a></td>
+                            <td>100 hrs</td>
+                            </tr>
+                            <tr>
+                            <td><a href="#"><i class="icon-star"></i> Jim</a></td>
+                            <td>100 hrs</td>
+                            </tr>
+                            <tr>
+                            <td><a href="#">Jane</a></td>
+                            <td>30 hrs</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                        
+                 </div>
+            </div>        
+  
+            
+
+  <script>
+  document.write('<script src=' +
+  ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +
+  '.js><\/script>')
+  </script>
+  
+  <script src="js/foundation.min.js"></script>
+  <!--
+  
+  <script src="js/foundation/foundation.js"></script>
+  
+  <script src="js/foundation/foundation.dropdown.js"></script>
+  
+  <script src="js/foundation/foundation.alerts.js"></script>
+  
+  <script src="js/foundation/foundation.clearing.js"></script>
+  
+  <script src="js/foundation/foundation.placeholder.js"></script>
+  
+  <script src="js/foundation/foundation.forms.js"></script>
+  
+  <script src="js/foundation/foundation.cookie.js"></script>
+  
+  <script src="js/foundation/foundation.joyride.js"></script>
+  
+  <script src="js/foundation/foundation.magellan.js"></script>
+  
+  <script src="js/foundation/foundation.orbit.js"></script>
+  
+  <script src="js/foundation/foundation.reveal.js"></script>
+  
+  <script src="js/foundation/foundation.section.js"></script>
+  
+  <script src="js/foundation/foundation.tooltips.js"></script>
+  
+  <script src="js/foundation/foundation.topbar.js"></script>
+  
+  -->
+  
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+</html>

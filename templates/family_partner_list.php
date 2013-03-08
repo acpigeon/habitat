@@ -36,13 +36,14 @@
         <li class="divider"></li>
         <li class="has-dropdown"><a href="#">Actions</a>
             <ul class="dropdown">
-                <li><a href="#">List family members</a></li>
-                <li><a href="#">Add family members</a></li>
+                <li><a href="family_partner_list.html">List family members</a></li>
+                <li><a href="family_partner_add.html">Add family members</a></li>
+                <li><a href="staff_member_add.html">Add staff members</a></li>
             </ul>
         </li>
         <li class="divider"></li>
       <li>
-        <a class="button" href="#">Log out</a>
+        <a class="button" href="index.html">Log out</a>
       </li>
     </ul>
   </section>
@@ -55,7 +56,7 @@
 	</div>
         <div class="row">
             <div class="large-offset-2 large-8 columns">
-                <a class="button" href="#">Add New Family Partner</a>
+                <a class="button" href="family_partner_add.html">Add New Family Partner</a>
             </div>
         </div>
 
@@ -71,6 +72,7 @@
                     </tr>
                 </thead>
                 <tbody>
+<<<<<<< HEAD:templates/family_partner_list.php
 										<?php 
 											$request = New Request;
 											//var_dump($request->listFamilies()); 
@@ -83,6 +85,17 @@
 											}
 										?>
 
+=======
+                    <tr>
+                    <td><a href="family_partner_check_in.html">John Smith</a></td>
+                    <td>100 hrs</td>
+                    </tr>
+                    <tr>
+                    <td><a href="family_partner_check_in.html">John Smith</a></td>
+                    <td>100 hrs</td>
+                    </tr>
+                    
+>>>>>>> All fake links added:templates/family_partner_list.html
                 </tbody>
             </table>
             </div>    
@@ -90,7 +103,7 @@
         
         <div class="row">
             <div class="large-offset-2 large-8 columns">
-                <a class="button" href="#">Add New Family Partner</a>
+                <a class="button" href="family_partner_add.html">Add New Family Partner</a>
             </div>
         </div>
 
