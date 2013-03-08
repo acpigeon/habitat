@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-
+<?php include('../requests/base.php'); ?>
 <head>
 	<meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>Austin Habitat for Humanity</title>
+  <title>Family Partner List | Austin Habitat for Humanity</title>
 
   <link rel="stylesheet" href="css/normalize.css" />
   
   <link rel="stylesheet" href="css/foundation.css" />
   
-   <!--Font Awesome -->
+  <!--Font Awesome -->
   <link rel="stylesheet" href="css/font-awesome-ie7.min.css" />
   <link rel="stylesheet" href="css/font-awesome.css" />
   
@@ -33,8 +33,16 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
+        <li class="divider"></li>
+        <li class="has-dropdown"><a href="#">Actions</a>
+            <ul class="dropdown">
+                <li><a href="#">List family members</a></li>
+                <li><a href="#">Add family members</a></li>
+            </ul>
+        </li>
+        <li class="divider"></li>
       <li>
-        <a class="button" href="#">Log in</a>
+        <a class="button" href="#">Log out</a>
       </li>
     </ul>
   </section>
@@ -45,34 +53,46 @@
 			<h2 class="logo_brand">Austin Habitat for Humanity</h2>
 		</div>
 	</div>
+        <div class="row">
+            <div class="large-offset-2 large-8 columns">
+                <a class="button" href="#">Add New Family Partner</a>
+            </div>
+        </div>
 
 	<div class="row">
-		<div class="large-offset-2 large-8 columns">
-			<form action="login.php" method="POST" id="login">
-                            <fieldset class="login_form">
-                                <legend>Login</legend>
-                                    <div class="row">
-                                    <div class="large-12 columns">
-                                        <label>Login</label>
-                                        <input type="text" placeholder="Please enter your login">
-                                    </div>
-                                    <div class="large-12 columns">
-                                        <label>Password</label>
-                                        <input type="password" placeholder="Please enter your password">
-                                    </div>
-                               </div>
-                               <div class="row">
-                                    <div class="large-12 columns">
-                                            <a href="#" class="button postfix expand">Log in</a>
-                                    </div>
-                                    <div class="large-12 columns">
-                                        <a href="#">Forgot password</a>
-                                    </div>
-                               </div>
-                            </fieldset>
-                        </form>
-		</div>
+            
+            <div class="large-offset-2 large-8 columns">
+                <table >
+                <thead>
+                    <tr>
+                    <th width="70%">Family partner</th>
+                    <th>Total hours</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+										<?php 
+											$request = New Request;
+											//var_dump($request->listFamilies()); 
+											$families = $request->listFamilies();
+											foreach($families as $family){
+												echo '<tr>' . "\n";
+												echo '<td><a href="/profiles.php?family=' . $family['FamilyId'] . '">' . $family['FamilyName'] . '</a></td>' . "\n";
+												echo '<td>' . $family['SweatHours'] . '</td>' . "\n";
+												echo '</tr>' . "\n";
+											}
+										?>
+
+                </tbody>
+            </table>
+            </div>    
 	</div>
+        
+        <div class="row">
+            <div class="large-offset-2 large-8 columns">
+                <a class="button" href="#">Add New Family Partner</a>
+            </div>
+        </div>
 
   <script>
   document.write('<script src=' +

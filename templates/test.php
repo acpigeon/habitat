@@ -3,6 +3,6 @@
 include('../requests/base.php');
 
 $request = New Request;
-echo $request->Connect();
+var_dump($request->listFamilies());
 
 ?>

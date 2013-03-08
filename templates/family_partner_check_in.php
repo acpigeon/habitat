@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>Family Partner List | Austin Habitat for Humanity</title>
+  <title>Family Partner Check-In | Austin Habitat for Humanity</title>
 
   <link rel="stylesheet" href="css/normalize.css" />
   
@@ -33,6 +33,14 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
+        <li class="divider"></li>
+        <li class="has-dropdown"><a href="#">Actions</a>
+            <ul class="dropdown">
+                <li><a href="#">List family members</a></li>
+                <li><a href="#">Add family members</a></li>
+            </ul>
+        </li>
+        <li class="divider"></li>
       <li>
         <a class="button" href="#">Log out</a>
       </li>
@@ -47,29 +55,45 @@
 	</div>
         <div class="row">
             <div class="large-offset-2 large-8 columns">
-                <a class="button" href="#">Add New Family Partner</a>
+                <h3><i class="icon-group"></i> Anderson, Jim & Jane</h3>
+                <p>
+                    Total Hours for Family Partner:  <strong>230</strong>
+                    (<a href="#">Show report</a>)
+                    
+                     <form class="custom ">
+                        
+                            <label for="customDropdown">Type:</label>
+                            <select id="customDropdown" class="medium">
+                                <option>Construction</option>
+                                <option>Non-construction</option>
+                            </select>
+                    </form>
+                </p>
             </div>
         </div>
-
+    
 	<div class="row">
             
             <div class="large-offset-2 large-8 columns">
                 <table >
                 <thead>
                     <tr>
-                    <th width="70%">Family partner</th>
-                    <th>Total hours</th>
+                    <th width="50%">Family partner or member</th>
+                    <th><i class="icon-time"></i></th>
+                    <th width="30%">Actions</th>
 
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                    <td><a href="#">John Smith</a></td>
-                    <td>100 hrs</td>
+                    <td><a href="#"><i class="icon-user"></i>  John Smith</a></td>
+                    <td>Started at 9:00</td>
+                    <td><a class="small button expand" href="#"><i class="icon-check"></i> Check In</a></td>
                     </tr>
                     <tr>
-                    <td><a href="#">John Smith</a></td>
-                    <td>100 hrs</td>
+                    <td><a href="#"><i class="icon-user"></i>  John Smith</a></td>
+                    <td>Started at 9:00</td>
+                    <td><a class="small button expand alert" href="#"><i class="icon-check-empty"></i> Check Out</a></td>
                     </tr>
                     
                 </tbody>
