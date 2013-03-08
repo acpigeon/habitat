@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-
+<?php include('../requests/base.php'); ?>
 <head>
 	<meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
@@ -63,15 +63,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <td><a href="#">John Smith</a></td>
-                    <td>100 hrs</td>
-                    </tr>
-                    <tr>
-                    <td><a href="#">John Smith</a></td>
-                    <td>100 hrs</td>
-                    </tr>
-                    
+										<?php 
+											$request = New Request;
+											//var_dump($request->listFamilies()); 
+											$families = $request->listFamilies();
+											foreach($families as $family){
+												echo '<tr>' . "\n";
+												echo '<td><a href="/profiles.php?family=' . $family['FamilyId'] . '">' . $family['FamilyName'] . '</a></td>' . "\n";
+												echo '<td>' . $family['SweatHours'] . '</td>' . "\n";
+												echo '</tr>' . "\n";
+											}
+										?>
+
                 </tbody>
             </table>
             </div>    

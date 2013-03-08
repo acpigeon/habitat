@@ -10,10 +10,13 @@ password: habitat
 dbname: habitatforhumanity
 */
 class Request {
-	public $host = 'localhost';
+	//public $host = 'localhost';
+	public $host = '184.72.232.112';
 	public $user = 'root';
-	public $pass = 'root';
+	public $pass = 'habitat';
 	public $dbname = 'habitatforhumanity';
+	public $port = 3306;
+  //public $connection = Connect();
 
 	/**
 	* Function Connect()
@@ -29,8 +32,17 @@ class Request {
 		return $mysqli;
 	}
 
-	
-
+	public function listFamilies() {
+		$mysqli = $this->Connect();
+		$sql = 'SELECT FamilyName, FamilyId, SweatHours FROM `FAMILY`';
+		$results = $mysqli->query($sql);
+		$return = array();
+		foreach($results as $result) {
+			//var_dump($result);
+			$return[] = $result;
+		}
+		return $return;
+	}
 	/**
 	* Function makeRequest
 	*
